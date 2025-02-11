@@ -48,8 +48,8 @@ function capitalizeFirstLetter(val) {
 }
 function addNewLines(str) {
     var newStr = "";
-    for (var i = 0; i < str.length; i += 50) {
-        newStr += str.slice(i, i + 49) + "\n";
+    for (var i = 0; i < str.length; i += 30) {
+        newStr += str.slice(i, i + 30 - 1) + "\n";
     }
     return newStr;
 }
