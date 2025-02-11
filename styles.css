@@ -1,16 +1,52 @@
-html, body {
-    background-color: #23272e;
+html,
+body {
+  background-color: #23272e;
 }
 
-/* #main-app {
-    display: flex;
-    justify-content: center;
-} */
+#main-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#title {
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+}
 
 #chat {
-    color: white;
+  color: white;
+  flex: 1;
+  width: 500px;
 }
 
 .message-user {
-    padding-left: 300px;
+  text-align: end;
+}
+
+.message-user-text, .message-llm-text  {
+    border-width: 0px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.message-user-text {
+    background-color: #333333;
+    text-align: start;
+}
+
+.message-llm {
+  display: flex;
+  align-items: center;
+}
+
+.dfil-img {
+  width: 40px;
+  height: auto;
+  border-radius: 50px;
+  padding: 5px;
 }

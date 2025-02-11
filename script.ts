@@ -1,8 +1,19 @@
-function addMessageAs(role: 'llm' | 'user', msg: string) {
+function addMessageAs(role: "llm" | "user", msg: string) {
   const newRow = document.createElement("p");
-  newRow.classList.add("message-" + role)
-  newRow.innerText = msg;
+  const newSpan = document.createElement("button");
+  role === 'llm' ? addImage(newRow) : {}
+  newRow.classList.add("message-" + role);
+  newSpan.classList.add("message-" + role + "-text");
+  newSpan.innerText = addNewLines(msg);
+  newRow.appendChild(newSpan);
   document.getElementById("chat")?.appendChild(newRow);
+}
+
+function addImage(row: HTMLParagraphElement) {
+    const img = document.createElement("img")
+    img.src = "public/dfil.jpeg"
+    img.classList.add("dfil-img")
+    row.appendChild(img)
 }
 
 const wordPool = ["ok", "buenisimo", "listo", "dale"];
@@ -32,12 +43,20 @@ function shuffle(array: string[]): string[] {
 }
 
 function handleNewMessage(msg: string) {
-    addMessageAs("user", msg)
-    setTimeout(() => {
-        generateAnswer()
-    }, 1000)
+  addMessageAs("user", msg);
+  setTimeout(() => {
+    generateAnswer();
+  }, 1000);
 }
 
 function capitalizeFirstLetter(val: string) {
-    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+  return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
+
+function addNewLines(str: string): string {
+    let newStr = ""
+    for (let i = 0; i < str.length; i+=50) {
+       newStr += str.slice(i, i+49) + "\n"
+    }
+    return newStr
 }
